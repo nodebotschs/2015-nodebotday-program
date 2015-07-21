@@ -36,7 +36,7 @@
     <body>
         
         
-    <div class="book" data-level="3.2" data-basepath=".." data-revision="Fri Jul 17 2015 22:36:41 GMT-0400 (EDT)">
+    <div class="book" data-level="3.2" data-basepath=".." data-revision="Tue Jul 21 2015 16:48:57 GMT-0400 (EDT)">
     
 
 <div class="book-summary">
@@ -415,6 +415,45 @@
                     <section class="normal" id="section-">
                     
                         <h1 id="particle-core-setup">Particle Core Setup</h1>
+<blockquote>
+<p>We want to setup the particle core via usb.</p>
+</blockquote>
+<ol>
+<li>Plug in your usb cable to your computer and the particle core.</li>
+<li>Run particle-cli setup</li>
+</ol>
+<pre><code class="lang-sh">particle setup
+</code></pre>
+<ol>
+<li>Enter your email address and password, this will create an account on particle.io.</li>
+<li>Detect your wifi, you should have a handout that contains the wifi info, use it to send your particle core the wifi information.</li>
+</ol>
+<p>You should see the core light go from blinking blue to breathing cyan:</p>
+<p><a href="http://docs.particle.io/core/connect/" target="_blank">http://docs.particle.io/core/connect/</a></p>
+<p>If you get any errors please let one of the mentors know.</p>
+<ol>
+<li>Flash the core</li>
+</ol>
+<blockquote>
+<p>Once your particle core is connected via wifi, we need to flash the core with the voodoospark cpp file</p>
+</blockquote>
+<ol>
+<li>Checkout voodoospark</li>
+</ol>
+<pre><code>git clone  https://github.com/voodootikigod/voodoospark.git
+cd voodoospark
+particle flash --usb firmware/voodoospark.cpp
+</code></pre><ol>
+<li>Get your Device ID and Access Token</li>
+</ol>
+<blockquote>
+<p>To get your device id simply Run</p>
+</blockquote>
+<pre><code>particle list
+</code></pre><blockquote>
+<p>To get your access token</p>
+</blockquote>
+<p>In you home directory there should be a folder called <code>.particle</code> and in that folder a file called <code>particle.config.json</code> - in that file should be your access token.</p>
 
                     
                     </section>
@@ -435,10 +474,6 @@
 
         
 <script src="../gitbook/app.js"></script>
-
-    
-    <script src="../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
-    
 
 <script>
 require(["gitbook"], function(gitbook) {
