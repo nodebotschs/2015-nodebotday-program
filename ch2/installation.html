@@ -36,7 +36,7 @@
     <body>
         
         
-    <div class="book" data-level="3.1" data-basepath=".." data-revision="Fri Jul 17 2015 22:36:41 GMT-0400 (EDT)">
+    <div class="book" data-level="3.1" data-basepath=".." data-revision="Tue Jul 21 2015 16:48:57 GMT-0400 (EDT)">
     
 
 <div class="book-summary">
@@ -415,6 +415,30 @@
                     <section class="normal" id="section-">
                     
                         <h1 id="install-node-js-and-particle-cli">Install Node.js and Particle CLI</h1>
+<p>Node.js is an incredible platform that allows you to build things in javascript, which we will need in order to download and use the Particle CLI (Command Line Interface) which is the way you will be interacting with your hardware (Particle Core) to program your robot.</p>
+<p>Depending on the operating system, you will need to follow specific directions, but generally you will:</p>
+<ol>
+<li><p>Install <a href="http://nodejs.org" target="_blank">NodeJS</a> (Click Install)</p>
+<p>Once Node.js is installed, you will also have available the Node Package Manager which is how you will install libraries and utilities that help you build and interact with your hardware/software.</p>
+</li>
+<li><p>Then install the Particle CLI</p>
+</li>
+</ol>
+<p>The Particle Command Line Interface is a tool written by the folks who also made your device.  This tool allows you to connect, claim, and use your device, so you&apos;ll need to install it:</p>
+<pre><code>git clone git@github.com:spark/particle-cli.git
+cd particle-cli
+npm i . -g
+</code></pre><ol>
+<li>To make sure that the installation worked, go ahead and try to login to your particle account by typing <code>particle login</code> (this will prompt you for your username and password.)  This will actually create an account on particle.io which will allow you to manage your devices. <a href="particleSetup.html">see Particle Setup</a></li>
+</ol>
+<h3 id="for-windows-users">For Windows Users</h3>
+<blockquote>
+<p>For windows users you may want to follow these instructions: <a href="https://community.particle.io/t/tutorial-particle-cli-on-windows-07-jun-2015/3112" target="_blank">https://community.particle.io/t/tutorial-particle-cli-on-windows-07-jun-2015/3112</a></p>
+</blockquote>
+<h3 id="for-ubuntu-users">For Ubuntu Users</h3>
+<blockquote>
+<p>For ubuntu users you may want to follow these instructions: <a href="https://community.particle.io/t/how-to-install-the-spark-toolchain-in-ubuntu-14-04/4139" target="_blank">https://community.particle.io/t/how-to-install-the-spark-toolchain-in-ubuntu-14-04/4139</a></p>
+</blockquote>
 
                     
                     </section>
@@ -435,10 +459,6 @@
 
         
 <script src="../gitbook/app.js"></script>
-
-    
-    <script src="../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
-    
 
 <script>
 require(["gitbook"], function(gitbook) {
