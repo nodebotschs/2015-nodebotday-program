@@ -7,7 +7,7 @@
     * [Particle Core Setup](ch2/particleSetup.md)
 * [Sumobot Instructions](ch3/README.md)
     * [Assembly](ch3/assembly.md)
-    * [Connecting the brain (Particle Core)](ch3/animations.md)
+    * [Connecting the brain (Particle Core)](ch3/connectParticleCore.md)
 * [Coding Up Your New Robot!](ch4/README.md)
     * [Johnny Five is Alive](ch4/johnnyfive.md)
     * [Running a script](ch4/coding.md)
