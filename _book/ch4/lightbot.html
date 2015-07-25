@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>Johnny Five is Alive | Welcome to International NodeBots Day 2015</title>
+        <title>Lightbot | Welcome to International NodeBots Day 2015</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.1.0">
@@ -25,10 +25,10 @@
         
     
     
-    <link rel="next" href="../ch4/coding.html" />
+    <link rel="next" href="../ch5/index.html" />
     
     
-    <link rel="prev" href="../ch4/index.html" />
+    <link rel="prev" href="../ch4/stopandgo.html" />
     
 
         
@@ -36,7 +36,7 @@
     <body>
         
         
-    <div class="book" data-level="5.1" data-basepath=".." data-revision="Fri Jul 24 2015 21:59:14 GMT-0400 (EDT)">
+    <div class="book" data-level="5.2" data-basepath=".." data-revision="Fri Jul 24 2015 23:29:54 GMT-0400 (EDT)">
     
 
 <div class="book-summary">
@@ -229,45 +229,30 @@
             <ul class="articles">
                 
     
-        <li class="chapter active" data-level="5.1" data-path="ch4/johnnyfive.html">
+        <li class="chapter " data-level="5.1" data-path="ch4/stopandgo.html">
             
                 
-                    <a href="../ch4/johnnyfive.html">
+                    <a href="../ch4/stopandgo.html">
                         <i class="fa fa-check"></i>
                         
                             <b>5.1.</b>
                         
-                        Johnny Five is Alive
+                        Stop &amp; Go
                     </a>
                 
             
             
         </li>
     
-        <li class="chapter " data-level="5.2" data-path="ch4/coding.html">
+        <li class="chapter active" data-level="5.2" data-path="ch4/lightbot.html">
             
                 
-                    <a href="../ch4/coding.html">
+                    <a href="../ch4/lightbot.html">
                         <i class="fa fa-check"></i>
                         
                             <b>5.2.</b>
                         
-                        Running a script
-                    </a>
-                
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="5.3" data-path="ch4/codeSamples.html">
-            
-                
-                    <a href="../ch4/codeSamples.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>5.3.</b>
-                        
-                        Code Samples
+                        Lightbot
                     </a>
                 
             
@@ -429,7 +414,62 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="johnny-five-is-alive">Johnny Five is Alive</h1>
+                        <h1 id="lightbot-project">Lightbot project</h1>
+<p>This customization will add a Light Dependent Resistor (Photocell) to the front of the bot to allow controlling the bot with a light source. When light is directed at the front of the SumoBot, it will move forward; when no light is present, it will stop. This is a simple demonstration of processing analog sensor input into actuator output.</p>
+<p>The following items can be found in the AdaFruit.com and Radioshack:</p>
+<ul>
+<li><a href="http://www.adafruit.com/products/161" target="_blank">Photocell</a></li>
+<li><a href="http://comingsoon.radioshack.com/10k-ohm-1-4-watt-carbon-film-resistor-5-pack/2711335.html#.VbMBquhViko" target="_blank">10k&#x2126; resistor</a></li>
+</ul>
+<p><img src="../images/sumo-ldr-10kohm.jpg" alt="Sumo LEDs"></p>
+<p>The following diagram describe the circuit layout for the controller board:</p>
+<p><img src="../images/sumo-light-spark-circuit.png" alt="Circuit Layout"></p>
+<p>Here&apos;s the code that will run the Lightbot:</p>
+<pre><code class="lang-js">
+<span class="hljs-keyword">var</span> Spark = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;spark-io&quot;</span>);
+<span class="hljs-keyword">var</span> five = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;johnny-five&quot;</span>);
+<span class="hljs-keyword">var</span> Sumobot = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;sumobot&quot;</span>)(five);
+
+<span class="hljs-keyword">var</span> board = <span class="hljs-keyword">new</span> five.Board({
+  io: <span class="hljs-keyword">new</span> Spark({
+    token: process.env.SPARK_TOKEN,
+    deviceId: process.env.SPARK_DEVICE
+  })
+});
+
+board.on(<span class="hljs-string">&quot;ready&quot;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;Welcome to Sumobot Jr: Light Bot!&quot;</span>);
+
+  <span class="hljs-keyword">var</span> bot = <span class="hljs-keyword">new</span> Sumobot({
+    left: <span class="hljs-string">&quot;D0&quot;</span>,
+    right: <span class="hljs-string">&quot;D1&quot;</span>,
+    speed: <span class="hljs-number">0.50</span>
+  });
+
+  <span class="hljs-keyword">var</span> light = <span class="hljs-keyword">new</span> five.Sensor(<span class="hljs-string">&quot;A0&quot;</span>);
+
+  <span class="hljs-comment">// More light =&gt; higher resistance =&gt; lower ADC value</span>
+  <span class="hljs-comment">// If the reading is &lt; 512, it&apos;s in direct light</span>
+  light.booleanAt(<span class="hljs-number">512</span>).on(<span class="hljs-string">&quot;change&quot;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+    bot[<span class="hljs-keyword">this</span>.boolean ? <span class="hljs-string">&quot;stop&quot;</span> : <span class="hljs-string">&quot;fwd&quot;</span>]();
+  });
+
+  <span class="hljs-comment">// Ensure the bot is stopped</span>
+  bot.stop();
+});
+</code></pre>
+<p>Don&apos;t forget, for the above code to work, you&apos;ll need to install the node modules:</p>
+<p><code>npm install keypress spark-io johnny-five sumobot</code></p>
+<p>Here&apos;s a video of it in action:</p>
+<video controls class="blog-full-width-block" style="display: inline-block;width: 100%;margin: 0 0 1em 0;">
+<source src="https://dl.dropboxusercontent.com/u/3531958/sumobot/sumo-light-bot.mp4">
+<source src="https://dl.dropboxusercontent.com/u/3531958/sumobot/sumo-light-bot.webm">  
+<source src="https://dl.dropboxusercontent.com/u/3531958/sumobot/sumo-light-bot.ogv">
+<iframe width="560" height="315" src="//www.youtube.com/embed/JqDq705zxOg" frameborder="0" allowfullscreen></iframe>
+</video>
+
+<p>These instructions are adapted from <a href="https://bocoup.com/weblog/customizing-the-robotsconf-sumobot-with-johnny-five/" target="_blank">Customizing the RobotsConf Sumobot with Johnny-Five</a> by <a href="https://twitter.com/rwaldron" target="_blank">Rick Waldron, creator of Johnny Five</a></p>
 
                     
                     </section>
@@ -440,20 +480,16 @@
         </div>
 
         
-        <a href="../ch4/index.html" class="navigation navigation-prev " aria-label="Previous page: Coding Up Your New Robot!"><i class="fa fa-angle-left"></i></a>
+        <a href="../ch4/stopandgo.html" class="navigation navigation-prev " aria-label="Previous page: Stop &amp; Go"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../ch4/coding.html" class="navigation navigation-next " aria-label="Next page: Running a script"><i class="fa fa-angle-right"></i></a>
+        <a href="../ch5/index.html" class="navigation navigation-next " aria-label="Next page: Resources/Links for Making Robots"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
 
         
 <script src="../gitbook/app.js"></script>
-
-    
-    <script src="../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
-    
 
 <script>
 require(["gitbook"], function(gitbook) {
