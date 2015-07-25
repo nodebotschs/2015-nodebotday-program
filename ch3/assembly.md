@@ -81,6 +81,41 @@ While running, adjust the servo’s potentiometer until it comes to a complete s
 ### Assembly
 The SumoBot Kit includes an insert that provides a numbered and illustrated assembly guide; while the guide is adequate, this build is different enough to warrant its own set of instructions.
 
-For each side panel, line up a servo so that the horn is closest to the front of that panel. The end of the servo with the wiring harness must be opposite of the cut out notch in the panel that would logically be used to thread the wiring through (which is facing to the back of the bot), but this build ignores that logic ;)
+1. For each side panel, line up a servo so that the horn is closest to the front of that panel. The end of the servo with the wiring harness must be opposite of the cut out notch in the panel that would logically be used to thread the wiring through (which is facing to the back of the bot), but this build ignores that logic ;)
+![Image Build 1](../images/sumo-assembly-01.jpg)
 
-- These instructions are adapted from [Assembling and Preparing the RobotsConf Sumobot with Johnny-Five](https://bocoup.com/weblog/assembling-preparing-robotsconf-sumobot-with-johnny-five/) by [Rick Waldron, creator of Johnny Five](https://twitter.com/rwaldron)
+2. Push the servo through the mounting cut-out and line up its mounting tabs with the through holes in the side panel.
+<video controls="" class="blog-full-width-block" style="display: inline-block;width: 100%;margin: 0 0 1em 0;">
+  <source src="https://dl.dropboxusercontent.com/u/3531958/sumobot/sumo-servo-assembly.mp4">
+  <source src="https://dl.dropboxusercontent.com/u/3531958/sumobot/sumo-servo-assembly.webm">  
+  <source src="https://dl.dropboxusercontent.com/u/3531958/sumobot/sumo-servo-assembly.ogv">
+  <iframe width="420" height="315" src="//www.youtube.com/embed/OVeDhGpFzfI" frameborder="0" allowfullscreen=""></iframe>
+</video>
+
+3. This is what correctly assembled right and left panels look like:
+![Image Build 1](../images/sumo-assembly-02.jpg)
+
+4. Lay out the (clockwise) bottom, right, top and left panels as shown here:
+![Image Build 1](../images/sumo-assembly-03.jpg)
+
+5. Using a bit of glue at each seam, combine the panels so that they match the following. (Note that the ball caster screws should be in the rear of the assembled bot.)
+![Image Build 1](../images/sumo-assembly-04.jpg)
+![Image Build 1](../images/sumo-assembly-05.jpg)
+
+6. Using adequate force, push the wheels onto the servo horns. Notice that the wheels are notched to match the servo horn.
+![Image Build 1](../images/sumo-assembly-06.jpg)
+![Image Build 1](../images/sumo-assembly-07.jpg)
+
+7. With two screws from one of the servo accessory bags, screw the ballcaster into the bottom panel:
+![Image Build 1](../images/sumo-assembly-08.jpg)
+
+8. Remove the adhesive backing from the solderless breadboard and attach it directly to the top of the bot:
+![Image Build 1](../images/sumo-assembly-09.jpg)
+
+9. Attach the front panel to the bot (glue is optional, as you may want to customize this later).
+![Image Build 1](../images/sumo-assembly-10.jpg)
+
+10. Enjoy your assembled robot!
+![Image Build 1](../images/sumo-assembly-11.jpg)
+
+These instructions are adapted from [Assembling and Preparing the RobotsConf Sumobot with Johnny-Five](https://bocoup.com/weblog/assembling-preparing-robotsconf-sumobot-with-johnny-five/) by [Rick Waldron, creator of Johnny Five](https://twitter.com/rwaldron)
