@@ -6,6 +6,7 @@
     * [Install Node.js and Particle CLI](ch2/installation.md)
     * [Particle Core Setup](ch2/particleSetup.md)
 * [Sumobot Instructions](ch3/README.md)
+    * [Hello World](ch3/helloworld.md)
     * [Assembly](ch3/assembly.md)
     * [Connecting the brain (Particle Core)](ch3/connectParticleCore.md)
 * [Coding Up Your New Robot!](ch4/README.md)
