@@ -1,19 +1,20 @@
 # Special Thanks and Sponsors
 
+Without our sponsors, this event would not be possible.
+
+## Title Sponsor
+
+[![JRS Logo](../images/jackhq-logo.png)](http://www.jackrussellsoftware.com)
+
+
 ## Platinum Sponsors
 
-# [Lincs.io](http://lincs.io/)
+[![Lincs logo](../images/lincs_white.png)](http://lincs.io/)
 
-A Charleston Custom Software Shop geared to startups and custom projects.
+[![TIY Logo](../images/TIY-logo-thumb.png)](http://theironyard.com)
 
-# [Iron Yard Charleston](http://theironyard.com/locations/charleston/)
+### Gold Sponsors
 
-A School where you can learn to code.
+[Boomtown](http://boomtownroi.com/)
 
-## Gold Sponsors
-
-# [Boomtown](http://boomtownroi.com/)
-
-# [Jack Russell Software](http://www.jackrussellsoftware.com)
-
-# [Sparc](http://www.sparcedge.com/)
+[Sparc](http://www.sparcedge.com/)
