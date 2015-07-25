@@ -13,6 +13,8 @@ Without our sponsors, this event would not be possible.
 
 [![TIY Logo](../images/TIY-logo-thumb.png)](http://theironyard.com)
 
+[![Makelab logo](../images/makelab.png)](http://makelabcharleston.org/)
+
 ### Gold Sponsors
 
 [Boomtown](http://boomtownroi.com/)
